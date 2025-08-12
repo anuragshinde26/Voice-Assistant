@@ -19,5 +19,11 @@ A simple voice-controlled assistant with a graphical interface built using Pytho
 - **pyttsx3** (Text-to-Speech)  
 - **pywhatkit** (YouTube search & playback)  
 - **Wikipedia API**  
-- **pyjokes** (Jokes API) 
+- **pyjokes** (Jokes API)
+
+ <img width="1913" height="974" alt="image" src="https://github.com/user-attachments/assets/b074f91c-c8fe-4ff8-91d4-03f30d2cbb86" />
+ <img width="1239" height="823" alt="image" src="https://github.com/user-attachments/assets/0847c05e-8ca7-4433-8985-15f1fa9793aa" />
+
+
+
 
