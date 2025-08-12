@@ -6,21 +6,28 @@ import webbrowser
 
 def process_command(command, talk):
     """Handle recognized commands."""
+    command = command.lower().strip()
 
-    if 'play' in command:
-        song = command.replace('play', '')
-        talk(f"Playing {song}")
-        pywhatkit.playonyt(song)
+    if command.startswith('play '):
+        song = command.replace('play', '', 1).strip()
+        if song:
+            talk(f"Playing {song}")
+            pywhatkit.playonyt(song)
+        else:
+            talk("Please tell me what to play.")
 
     elif 'time' in command:
         current_time = datetime.datetime.now().strftime('%I:%M %p')
         talk(f"The time is {current_time}")
 
-    elif 'who is' in command:
+    elif command.startswith('who is'):
         try:
-            person = command.replace('who is', '')
-            info = wikipedia.summary(person, 1)
-            talk(info)
+            person = command.replace('who is', '', 1).strip()
+            if person:
+                info = wikipedia.summary(person, 1)
+                talk(info)
+            else:
+                talk("Please tell me who you want to know about.")
         except:
             talk("Sorry, I couldn't find information.")
 
@@ -28,13 +35,13 @@ def process_command(command, talk):
         joke = pyjokes.get_joke()
         talk(joke)
 
-    elif 'google' in command:
-        query = command.replace('google', '')
+    elif command.startswith('google '):
+        query = command.replace('google', '', 1).strip()
         talk(f"Searching Google for {query}")
         webbrowser.open(f"https://www.google.com/search?q={query}")
 
-    elif 'youtube' in command:
-        query = command.replace('youtube', '')
+    elif command.startswith('youtube '):
+        query = command.replace('youtube', '', 1).strip()
         talk(f"Searching YouTube for {query}")
         webbrowser.open(f"https://www.youtube.com/results?search_query={query}")
 
