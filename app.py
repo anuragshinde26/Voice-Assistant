@@ -3,6 +3,7 @@ from tkinter import scrolledtext
 import threading
 import speech_recognition as sr
 import pyttsx3
+import pyaudio  
 from commands import process_command
 
 # Initialize recognizer & TTS
